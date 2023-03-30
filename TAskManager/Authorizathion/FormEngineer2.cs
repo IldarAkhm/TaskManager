@@ -13,8 +13,9 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Authorizathion
 {
-    public partial class Form5 : Form
+    public partial class FormEngineer2 : Form
     {
+        private int notification = 0;
         private int indexNameProblem;
         private bool isTextChanged;
         private popupForm popup;
@@ -24,6 +25,7 @@ namespace Authorizathion
         private string lastName;
         private bool popupOpen = false;
         private int uID;
+        private string grooup;
         private string unID;
         DB db = new DB();
         enum RowState
@@ -34,12 +36,12 @@ namespace Authorizathion
             ModifiedNew,
             Deleted
         }
-        public Form5()
+        public FormEngineer2()
         {
             InitializeComponent();
         }
 
-        public Form5(string name, string login, string email, string lastName, int uID, string unID)
+        public FormEngineer2(string name, string login, string email, string lastName, int uID, string unID)
         {
             this.name = name;
             this.login = login;
@@ -52,16 +54,48 @@ namespace Authorizathion
         }
         public void Form5_Load(object sender, EventArgs e)
         {
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
-            {
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
+            
             int centerX = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
             int centerY = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
 
             this.Location = new Point(centerX, centerY);
 
-            
+            db.openConnection();
+            var group = new SqlCommand($"select isnull(Grooup, '') from users.dbo.engineers where login = '{login}'", db.getConnection());
+            var gr = (string)group.ExecuteScalar();
+            grooup = gr;
+
+            var not = new SqlCommand($"select isnull(notification, '1') from users.dbo.users where login = '{login}'", db.getConnection());
+            var notif = (Boolean)not.ExecuteScalar();
+            if (notif) { checkBox1.Checked = true; }
+            else { checkBox1.Checked = false; }
+            db.closeConnection();
+            GroupLabel.Text = gr;
+
+            ToolTip tooltip = new ToolTip();
+            ToolTip tooltip2 = new ToolTip();
+            ToolTip tooltip3 = new ToolTip();
+            ToolTip tooltip4 = new ToolTip();
+            ToolTip tooltip5 = new ToolTip();
+            ToolTip tooltip6 = new ToolTip();
+            ToolTip tooltip7 = new ToolTip();
+
+            tooltip7.SetToolTip(pictureBox1, "Обновление списка проблем.");
+            tooltip7.InitialDelay = 200;
+            tooltip6.SetToolTip(buttonEx, "Выход.");
+            tooltip6.InitialDelay = 200;
+            tooltip5.SetToolTip(button3, "Фильтр.");
+            tooltip5.InitialDelay = 200;
+            tooltip4.SetToolTip(button2, "Выгрузка таблицы в Excel.");
+            tooltip4.InitialDelay = 200;
+            tooltip3.SetToolTip(pictureBox3, "Щелкните два раза по полю, которое хотите редактировать.");
+            tooltip3.InitialDelay = 200;
+            tooltip2.SetToolTip(label2, "Проблемы пользователей.");
+            tooltip2.InitialDelay = 200;
+            tooltip.SetToolTip(dataGridView1, "Щелкните два раза по полю, которое хотите редактировать.");
+            tooltip.InitialDelay = 200;
+
+
 
             CreateColumns();
             RefreshDataGrid(dataGridView1);
@@ -162,13 +196,32 @@ namespace Authorizathion
 
         private void RefreshDataGrid(DataGridView dgw)
         {
+            string gr = grooup;
+            List<string> types;
+            switch (gr)
+            {
+                case "A":
+                    types = new List<string>() { "Проблема", "Все" };
+                    break;
+                case "B":
+                    types = new List<string>() { "Инцидент", "Все" };
+                    break;
+                case "A и B":
+                    types = new List<string>(){"Проблема", "Инцидент"};
+                    break;
+                default:
+                    types = new List<string>() { "Нет", "Нет" };
+                    break;
+            }
+
+
+            db.openConnection();
             dgw.Rows.Clear();
 
-            string queryString = $"select Name_of_problem, date_of_problem, distibution, isnull(expiriation_date, ''), type, isnull(solution, ''), status, Name_of_user, user_id from users.dbo.UsersProblems where unic_id = '121212'";
+            string queryString = $"select Name_of_problem, date_of_problem, distibution, isnull(expiriation_date, ''), type, isnull(solution, ''), status, Name_of_user, user_id from users.dbo.UsersProblems where unic_id = '121212' and type in ('{types[0]}', '{types[1]}')";
 
             SqlCommand command = new SqlCommand(queryString, db.getConnection());
 
-            db.openConnection();
 
             SqlDataReader reader = command.ExecuteReader();
 
@@ -181,21 +234,30 @@ namespace Authorizathion
         }
         private void dataGridView_DoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (e.RowIndex >= 0)
             {
                 // Получаем данные о выбранной строке
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                if (row.Cells[0].Value != null)
+                {
+                    // Создаем экземпляр формы Form2
+                    InfoProbEngineer form6 = new InfoProbEngineer(dataGridView1, indexNameProblem, uID);
 
-                // Создаем экземпляр формы Form2
-                Form6 form6 = new Form6(dataGridView1, indexNameProblem, uID);
+                    // Передаем данные о выбранной строке в форму Form2
+                    form6.SetRowData(row);
 
-                // Передаем данные о выбранной строке в форму Form2
-                form6.SetRowData(row);
-
-                // Открываем форму Form2
-                form6.Show();
+                    // Открываем форму Form2
+                    form6.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Что-то пошло не так.. Убедитесь, есть ли в строке данные");
+                }
             }
-            catch { MessageBox.Show("Что-то пошло не так.. Убедитесь, есть ли в строке данные"); }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так.. Убедитесь, есть ли в строке данные");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -213,6 +275,60 @@ namespace Authorizathion
                 }
             }
             exApp.Visible = true;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedValue = comboBox1.SelectedItem.ToString();
+
+            for (int i = 0; i <= dataGridView1.Rows.Count - 2; i++)
+            {
+                if ((string)dataGridView1.Rows[i].Cells[6].Value == selectedValue)
+                {
+                    dataGridView1.Rows[i].Visible = true;
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Visible = false;
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Visible == true) { comboBox1.Visible = false; }
+            else { comboBox1.Visible = true; }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            RefreshDataGrid(dataGridView1);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true) 
+            {
+                notification = 1;
+                db.openConnection();
+
+                var query = new SqlCommand($"UPDATE users.dbo.users SET notification = '{notification}' where login = '{login}'", db.getConnection());
+                query.ExecuteNonQuery();
+
+
+                db.closeConnection();
+            }
+            else 
+            {
+                notification = 0;
+                db.openConnection();
+
+                var query = new SqlCommand($"UPDATE users.dbo.users SET notification = '{notification}'where login = '{login}'", db.getConnection());
+                query.ExecuteNonQuery();
+
+
+                db.closeConnection();
+            }
         }
     }
 }

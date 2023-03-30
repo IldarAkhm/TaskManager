@@ -82,7 +82,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.label2.Location = new System.Drawing.Point(339, 126);
+            this.label2.Location = new System.Drawing.Point(349, 250);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 33);
             this.label2.TabIndex = 2;
@@ -94,7 +94,7 @@
             this.labelLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelLogin.BackColor = System.Drawing.Color.Gainsboro;
             this.labelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelLogin.Location = new System.Drawing.Point(469, 126);
+            this.labelLogin.Location = new System.Drawing.Point(469, 250);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(282, 33);
             this.labelLogin.TabIndex = 3;
@@ -105,7 +105,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.label4.Location = new System.Drawing.Point(339, 189);
+            this.label4.Location = new System.Drawing.Point(349, 310);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 33);
             this.label4.TabIndex = 4;
@@ -117,7 +117,7 @@
             this.labelEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelEmail.BackColor = System.Drawing.Color.Gainsboro;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelEmail.Location = new System.Drawing.Point(469, 189);
+            this.labelEmail.Location = new System.Drawing.Point(469, 310);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(282, 33);
             this.labelEmail.TabIndex = 5;
@@ -128,7 +128,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.label6.Location = new System.Drawing.Point(349, 249);
+            this.label6.Location = new System.Drawing.Point(349, 126);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 33);
             this.label6.TabIndex = 6;
@@ -140,7 +140,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.label7.Location = new System.Drawing.Point(294, 310);
+            this.label7.Location = new System.Drawing.Point(308, 190);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(155, 33);
             this.label7.TabIndex = 7;
@@ -152,7 +152,7 @@
             this.labelName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelName.BackColor = System.Drawing.Color.Gainsboro;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelName.Location = new System.Drawing.Point(469, 249);
+            this.labelName.Location = new System.Drawing.Point(469, 126);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(282, 33);
             this.labelName.TabIndex = 8;
@@ -163,7 +163,7 @@
             this.labelLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelLastName.BackColor = System.Drawing.Color.Gainsboro;
             this.labelLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelLastName.Location = new System.Drawing.Point(469, 310);
+            this.labelLastName.Location = new System.Drawing.Point(469, 190);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(282, 33);
             this.labelLastName.TabIndex = 9;

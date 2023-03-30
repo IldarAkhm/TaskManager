@@ -20,7 +20,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 namespace Authorizathion
 {
     
-    public partial class Form2 : Form
+    public partial class FormUser : Form
     {
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -58,11 +58,19 @@ namespace Authorizathion
             tooltip1.SetToolTip(label2, "Нажмите для переключения главного экрана и списка проблем.");
             tooltip1.InitialDelay = 400;
 
+            db.openConnection();
+            var not = new SqlCommand($"select isnull(notification, '1') from users.dbo.users where login = '{login}'", db.getConnection());
+            var notif = (Boolean)not.ExecuteScalar();
+            if (notif) { checkBox1.Checked = true; }
+            else { checkBox1.Checked = false; }
+            db.closeConnection();
+
             foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
+        private int notifications = 0;
         private int indexNameProblem;
         private bool isTextChanged;
         private popupForm popup;
@@ -82,13 +90,13 @@ namespace Authorizathion
             ModifiedNew,
             Deleted
         }
-        public Form2()
+        public FormUser()
         {
             InitializeComponent();
             panel1.Paint += panel1_Paint;
         }
 
-        public Form2(string name, string login, string email, string lastName, int uID, string unID) 
+        public FormUser(string name, string login, string email, string lastName, int uID, string unID) 
         { 
             this.name = name;
             this.login = login;
@@ -134,19 +142,20 @@ namespace Authorizathion
             dataGridView1.Columns.Add("Type", "Тип");
             dataGridView1.Columns.Add("solution", "Решение");
             dataGridView1.Columns.Add("Status","Статус");
+            dataGridView1.Columns.Add("date_of_commissioning", "Дата принятия в работу");
             
         }
 
         private void ReadSingleRow(DataGridView dgw, IDataRecord record)
         {
-            dgw.Rows.Add(record.GetString(0), record.GetDateTime(1), record.GetString(2), record.GetDateTime(3), record.GetString(4), record.GetString(5), record.GetString(6), RowState.ModifiedNew);      
+            dgw.Rows.Add(record.GetString(0), record.GetDateTime(1), record.GetString(2), record.GetDateTime(3), record.GetString(4), record.GetString(5), record.GetString(6), record.GetDateTime(7), RowState.ModifiedNew);      
         }
 
         private void RefreshDataGrid(DataGridView dgw)
         {
             dgw.Rows.Clear();
 
-            string queryString = $"select Name_of_problem, date_of_problem, distibution, isnull(expiriation_date, ''), type, isnull(solution, ''), status from users.dbo.UsersProblems where Name_of_user = '{name}'";
+            string queryString = $"select Name_of_problem, date_of_problem, distibution, isnull(expiriation_date, ''), type, isnull(solution, ''), status, isnull(date_of_commissioning, '') from users.dbo.UsersProblems where Name_of_user = '{name}'";
 
             SqlCommand command = new SqlCommand(queryString, db.getConnection());
 
@@ -198,7 +207,7 @@ namespace Authorizathion
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Form3 add = new Form3(name, uID, unID);
+            CreateProblemForm add = new CreateProblemForm(name, uID, unID);
             add.Show();
         }
         
@@ -275,21 +284,30 @@ namespace Authorizathion
         //}
         private void dataGridView_DoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (e.RowIndex >= 0)
             {
                 // Получаем данные о выбранной строке
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                if (row.Cells[0].Value != null)
+                {
+                    // Создаем экземпляр формы Form2
+                    InfoProblemForm form6 = new InfoProblemForm(dataGridView1, indexNameProblem, uID);
 
-                // Создаем экземпляр формы Form2
-                Form4 form4 = new Form4(dataGridView1, indexNameProblem);
+                    // Передаем данные о выбранной строке в форму Form2
+                    form6.SetRowData(row);
 
-                // Передаем данные о выбранной строке в форму Form2
-                form4.SetRowData(row);
-
-                // Открываем форму Form2
-                form4.Show();
+                    // Открываем форму Form2
+                    form6.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Что-то пошло не так.. Убедитесь, есть ли в строке данные");
+                }
             }
-            catch { MessageBox.Show("Что-то пошло не так.. Убедитесь, есть ли в строке данные"); }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так.. Убедитесь, есть ли в строке данные");
+            }
         }
 
         //private void textBox_TextChanged(object sender, EventArgs e)
@@ -377,5 +395,30 @@ namespace Authorizathion
             
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                notifications = 1;
+                db.openConnection();
+
+                var query = new SqlCommand($"UPDATE users.dbo.users SET notification = '{notifications}' where login = '{login}'", db.getConnection());
+                query.ExecuteNonQuery();
+                
+
+                db.closeConnection();
+            }
+            else 
+            {
+                notifications = 0;
+                db.openConnection();
+
+                var query = new SqlCommand($"UPDATE users.dbo.users SET notification = '{notifications}'where login = '{login}'", db.getConnection());
+                query.ExecuteNonQuery();
+
+
+                db.closeConnection();
+            }
+        }
     }
 }

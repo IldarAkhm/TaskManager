@@ -1,6 +1,6 @@
 ﻿namespace Authorizathion
 {
-    partial class Form3
+    partial class CreateProblemForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateProblemForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(44, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(977, 100);
+            this.panel1.Size = new System.Drawing.Size(961, 100);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -62,12 +63,12 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.label3.Location = new System.Drawing.Point(73, 284);
+            this.label3.Location = new System.Drawing.Point(59, 251);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(369, 63);
+            this.label3.Size = new System.Drawing.Size(353, 44);
             this.label3.TabIndex = 2;
             this.label3.Text = "Описание проблемы:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -76,7 +77,7 @@
             // 
             this.saveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveButton.Location = new System.Drawing.Point(293, 382);
+            this.saveButton.Location = new System.Drawing.Point(285, 634);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(210, 56);
             this.saveButton.TabIndex = 7;
@@ -87,47 +88,48 @@
             // textBoxName
             // 
             this.textBoxName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxName.Location = new System.Drawing.Point(436, 211);
+            this.textBoxName.Location = new System.Drawing.Point(44, 204);
             this.textBoxName.Multiline = true;
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(305, 44);
+            this.textBoxName.Size = new System.Drawing.Size(689, 44);
             this.textBoxName.TabIndex = 8;
             // 
             // textBoxDist
             // 
             this.textBoxDist.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxDist.Location = new System.Drawing.Point(436, 294);
+            this.textBoxDist.Location = new System.Drawing.Point(44, 298);
             this.textBoxDist.Multiline = true;
             this.textBoxDist.Name = "textBoxDist";
-            this.textBoxDist.Size = new System.Drawing.Size(305, 44);
+            this.textBoxDist.Size = new System.Drawing.Size(689, 330);
             this.textBoxDist.TabIndex = 9;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.label4.Location = new System.Drawing.Point(73, 211);
+            this.label4.Location = new System.Drawing.Point(38, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(369, 63);
+            this.label4.Size = new System.Drawing.Size(397, 60);
             this.label4.TabIndex = 10;
             this.label4.Text = "Название проблемы:\r\n";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form3
+            // CreateProblemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 702);
             this.Controls.Add(this.textBoxDist);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "CreateProblemForm";
+            this.Text = "Создание проблемы";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

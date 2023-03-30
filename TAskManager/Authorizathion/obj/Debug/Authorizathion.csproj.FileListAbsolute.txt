@@ -23,8 +23,6 @@ C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\Ta
 C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\bin\Debug\MySql.Data.xml
 C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.csproj.CopyComplete
 C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.InputDialog.resources
-C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.Form2.resources
-C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.Form3.resources
 C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.popupForm.resources
 C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\bin\Debug\CsvHelper.dll
 C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
@@ -43,6 +41,11 @@ C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\Ta
 C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.csproj.ResolveComReference.cache
-C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.Form4.resources
-C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.Form5.resources
-C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.Form6.resources
+C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.FormUser.resources
+C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.CreateProblemForm.resources
+C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.InfoProblemForm.resources
+C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.FormEngineer2.resources
+C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.InfoProbEngineer.resources
+C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.AdminForm.resources
+C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.InfoEngineerForm.resources
+C:\Users\ahmet\OneDrive\Рабочий стол\Репозитории GitHub\TaskManager\TaskManager\TAskManager\Authorizathion\obj\Debug\Authorizathion.InfoProbAndType.resources

@@ -16,11 +16,11 @@ namespace Authorizathion
         private bool exReg;
         private void FormRegistr_Load(object sender, EventArgs e)
         {
-            loginReg.Text = "Введите Логин";
+            loginReg.Text = "Логин";
             loginReg.ForeColor = Color.Gray;
-            passReg.Text = "Введите Пароль";
+            passReg.Text = "Пароль";
             passReg.ForeColor = Color.Gray;
-            emailREg.Text = "Введите Email";
+            emailREg.Text = "Email";
             emailREg.ForeColor = Color.Gray;
             NameReg.Text = "Имя";
             NameReg.ForeColor = Color.Gray;
@@ -28,7 +28,7 @@ namespace Authorizathion
             pictureBox1.Visible = false;
             LastNameReg.Text = "Фамилия";
             LastNameReg.ForeColor= Color.Gray;
-            unicIDREg.Text = "Уникальный код!";
+            unicIDREg.Text = "Универсальный код";
             unicIDREg.ForeColor = Color.Gray;
             SurnameReg.Text = "Отчество(если имеется)";
             SurnameReg.ForeColor = Color.Gray;
@@ -54,13 +54,13 @@ namespace Authorizathion
             DB db = new DB();
             db.openConnection();
 
-            if (NameReg.Text == "Имя" || emailREg.Text == "Введите Email" || loginReg.Text == "Введите Логин" || passReg.Text == "Введите пароль" || LastNameReg.Text == "Фамилия" || unicIDREg.Text == "Уникальный код!")
+            if (NameReg.Text == "Имя" || emailREg.Text == "Email" || loginReg.Text == "Логин" || passReg.Text == "Пароль" || LastNameReg.Text == "Фамилия" || unicIDREg.Text == "Универсальный код")
             {
                 MessageBox.Show("Введите все данные");
             }
             
             if (isUserExist()) { return;}
-            if (NameReg.Text != "Имя" && emailREg.Text != "Введите Email" && loginReg.Text != "Введите Логин" && passReg.Text != "Введите пароль" && LastNameReg.Text != "Фамилия" && unicIDREg.Text == "121212")
+            if (NameReg.Text != "Имя" && emailREg.Text != "Email" && loginReg.Text != "Логин" && passReg.Text != "Пароль" && LastNameReg.Text != "Фамилия" && unicIDREg.Text == "121212")
             {
                 var login = loginReg.Text;
                 var pass = passReg.Text;
@@ -73,7 +73,7 @@ namespace Authorizathion
                     Surname = "";
                 }
                 var unic = unicIDREg.Text;
-                var un = new SqlCommand("select max(user_id) from userss;", db.getConnection());
+                var un = new SqlCommand("select max(user_id) from users;", db.getConnection());
                 var userid = (Int32)un.ExecuteScalar() + 1;
                 try
                 {
@@ -83,7 +83,7 @@ namespace Authorizathion
                     inputDialog.ShowDialog();
                     if (inputDialog.Flag == true)
                     {
-                        SqlCommand command = new SqlCommand($"INSERT INTO userss (user_id, login, Name, LastName, Surname, email, password, unic_id) VALUES ('{userid}', '{login}', '{Name}','{lastName}', '{Surname}', '{email}', '{pass}', '{unic}')", db.getConnection());
+                        SqlCommand command = new SqlCommand($"INSERT INTO users (login, Name, LastName, Surname, email, password, unic_id) VALUES ('{login}', '{Name}','{lastName}', '{Surname}', '{email}', '{pass}', '{unic}')", db.getConnection());
                         if (command.ExecuteNonQuery() == 1)
                         {
                             MessageBox.Show("Регистрация успешно завершена");
@@ -116,9 +116,8 @@ namespace Authorizathion
                     Surname = "";
                 }
                 var unic = unicIDREg.Text;
-                var Un = new SqlCommand("select max(user_id) from userss;", db.getConnection());
-                var Userid = (Int32)Un.ExecuteScalar() + 1;
-                var un = new SqlCommand("select max(engineer_id) from engineeeers;", db.getConnection());
+                
+                var un = new SqlCommand("select max(engineer_id) from engineers;", db.getConnection());
                 var userid = (Int32)un.ExecuteScalar() + 1;
 
                 ClassMailPassword messageCode = new ClassMailPassword(email);
@@ -127,9 +126,12 @@ namespace Authorizathion
                 inputDialog.ShowDialog();
                 if (inputDialog.Flag == true)
                 {
-                    SqlCommand command = new SqlCommand($"INSERT INTO users.dbo.engineeeers (engineer_id, login, Name, LastName, Surname, email, password, unic_id) VALUES ('{userid}', '{login}', '{Name}','{lastName}', '{Surname}', '{email}', '{pass}', '{unic}')", db.getConnection());
-                    SqlCommand commandd = new SqlCommand($"INSERT INTO users.dbo.userss (user_id, login, Name, LastName, Surname, email, password, unic_id) VALUES ('{Userid}', '{login}', '{Name}','{lastName}', '{Surname}', '{email}', '{pass}', '{unic}')", db.getConnection());
-                    if (command.ExecuteNonQuery() == 1 && commandd.ExecuteNonQuery() == 1)
+                    SqlCommand commandd = new SqlCommand($"INSERT INTO users.dbo.users ( login, Name, LastName, Surname, email, password,  unic_id) VALUES ('{login}', '{Name}','{lastName}', '{Surname}', '{email}', '{pass}', '{unic}')", db.getConnection());
+                    commandd.ExecuteNonQuery();
+                    var Un = new SqlCommand("select max(user_id) from users;", db.getConnection());
+                    var Userid = (Int32)Un.ExecuteScalar();
+                    SqlCommand command = new SqlCommand($"INSERT INTO users.dbo.engineers (user_id,login, Name, LastName, Surname, email, password, unic_id) VALUES ('{Userid}','{login}', '{Name}','{lastName}', '{Surname}', '{email}', '{pass}', '{unic}')", db.getConnection());
+                    if (command.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Регистрация успешно завершена");
                         exReg = true;
@@ -160,7 +162,7 @@ namespace Authorizathion
 
             //Команда которая должна выполнится для базы данных
             var login = loginReg.Text;
-            SqlCommand command = new SqlCommand($"select * from userss where login = '{login}'", db.getConnection());
+            SqlCommand command = new SqlCommand($"select * from users where login = '{login}'", db.getConnection());
             
 
             //Выбрали и выполнили нужную команду
@@ -180,7 +182,7 @@ namespace Authorizathion
         
         private void loginReg_Enter(object sender, EventArgs e)
         {
-            if (loginReg.Text == "Введите Логин")
+            if (loginReg.Text == "Логин")
             {
                 loginReg.Text = "";
                 loginReg.ForeColor = Color.Black;
@@ -190,7 +192,7 @@ namespace Authorizathion
         {
             if (string.IsNullOrWhiteSpace(loginReg.Text))
             {
-                loginReg.Text = "Введите Логин";
+                loginReg.Text = "Логин";
                 loginReg.ForeColor = Color.Gray;
             }
         }
@@ -198,7 +200,7 @@ namespace Authorizathion
 
         private void passReg_Enter(object sender, EventArgs e)
         {
-            if (passReg.Text == "Введите Пароль")
+            if (passReg.Text == "Пароль")
             {
                 passReg.Text = "";
                 passReg.ForeColor = Color.Black;
@@ -208,7 +210,7 @@ namespace Authorizathion
         {
             if (string.IsNullOrWhiteSpace(passReg.Text))
             {
-                passReg.Text = "Введите Пароль";
+                passReg.Text = "Пароль";
                 passReg.ForeColor = Color.Gray;
             }
         }
@@ -230,14 +232,14 @@ namespace Authorizathion
         {
             if (string.IsNullOrWhiteSpace(emailREg.Text))
             {
-                emailREg.Text = "Введите Email";
+                emailREg.Text = "Email";
                 emailREg.ForeColor = Color.Gray;
             }
         }
 
         private void emailReg_Enter(object sender, EventArgs e)
         {
-            if (emailREg.Text == "Введите Email")
+            if (emailREg.Text == "Email")
             {
                 emailREg.Text = "";
                 emailREg.ForeColor = Color.Black;
@@ -302,14 +304,14 @@ namespace Authorizathion
         {
             if (string.IsNullOrWhiteSpace(unicIDREg.Text))
             {
-                unicIDREg.Text = "Уникальный код!";
+                unicIDREg.Text = "Универсальный код";
                 unicIDREg.ForeColor = Color.Gray;
             }
         }
         
         private void unicIDREg_Enter(object sender, EventArgs e)
         {
-            if (unicIDREg.Text == "Уникальный код!")
+            if (unicIDREg.Text == "Универсальный код")
             {
                 unicIDREg.Text = "";
                 unicIDREg.ForeColor = Color.Black;

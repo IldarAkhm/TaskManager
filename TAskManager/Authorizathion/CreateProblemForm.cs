@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Authorizathion
 {
-    public partial class Form3 : Form
+    public partial class CreateProblemForm : Form
     {
         private string namee;
         private int usID;
@@ -24,13 +25,13 @@ namespace Authorizathion
 
             this.Location = new Point(centerX, centerY);
         }
-        public Form3()
+        public CreateProblemForm()
         {
             InitializeComponent();
 
             panel1.Paint += panel1_Paint;
         }
-        public Form3(string name, int uID, string unID) 
+        public CreateProblemForm(string name, int uID, string unID) 
         {
             this.usID = uID;
             this.unID= unID;
@@ -41,13 +42,15 @@ namespace Authorizathion
         {
             db.openConnection();
 
+
+
             var name = textBoxName.Text;
             if (name == "") { MessageBox.Show("Нельзя добавить проблему без названия"); }
             else
             {
                 var dist = textBoxDist.Text;
                 var stat = "Отправлено в отдел распределения";
-                var type = "Начальный";
+                var type = "";
                 var date = DateTime.Now;
 
                 var addQuery = $"insert into users.dbo.UsersProblems (Name_of_problem, Name_of_user, distibution, type, status, date_of_problem, user_id, unic_id ) values ('{name}', '{namee}', '{dist}', '{type}', '{stat}', '{date}', '{usID}', '{unID}') ";
@@ -62,6 +65,18 @@ namespace Authorizathion
                 {
                     MessageBox.Show("Что-то пошло не так..");
                 }
+            }
+            List<string> list = new List<string>() { };
+            var query = new SqlCommand($"select email from users.dbo.users where isnull(notification, '1') = '1' and unic_id = '080414'", db.getConnection());
+            var reader = query.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(reader.GetString(0));
+            }
+            foreach (var item in list)
+            {
+                ClassMailPassword messageCode = new ClassMailPassword(item, name);
+                messageCode.MailMessages();
             }
 
             db.closeConnection();
@@ -89,5 +104,6 @@ namespace Authorizathion
                 }
             }
         }
+
     }
 }

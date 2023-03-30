@@ -1,6 +1,6 @@
 ﻿namespace Authorizathion
 {
-    partial class Form4
+    partial class InfoProblemForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,13 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.SolutLabel = new System.Windows.Forms.Label();
+            this.SolutionLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -45,15 +52,10 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +63,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.label1.Location = new System.Drawing.Point(353, 20);
+            this.label1.Location = new System.Drawing.Point(438, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(612, 49);
             this.label1.TabIndex = 1;
@@ -73,7 +75,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.label2.Location = new System.Drawing.Point(188, 69);
+            this.label2.Location = new System.Drawing.Point(93, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(169, 49);
             this.label2.TabIndex = 2;
@@ -85,7 +87,7 @@
             this.dist.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dist.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dist.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.dist.Location = new System.Drawing.Point(572, 69);
+            this.dist.Location = new System.Drawing.Point(423, 72);
             this.dist.Name = "dist";
             this.dist.Size = new System.Drawing.Size(169, 49);
             this.dist.TabIndex = 3;
@@ -97,7 +99,7 @@
             this.date.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.date.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.date.Location = new System.Drawing.Point(962, 69);
+            this.date.Location = new System.Drawing.Point(775, 75);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(169, 49);
             this.date.TabIndex = 4;
@@ -108,9 +110,9 @@
             // 
             this.dateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dateLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.dateLabel.Location = new System.Drawing.Point(939, 121);
+            this.dateLabel.Location = new System.Drawing.Point(748, 118);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(220, 59);
+            this.dateLabel.Size = new System.Drawing.Size(220, 167);
             this.dateLabel.TabIndex = 6;
             this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -118,10 +120,10 @@
             // 
             this.distBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.distBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.distBox.Location = new System.Drawing.Point(477, 121);
+            this.distBox.Location = new System.Drawing.Point(334, 118);
             this.distBox.Multiline = true;
             this.distBox.Name = "distBox";
-            this.distBox.Size = new System.Drawing.Size(352, 284);
+            this.distBox.Size = new System.Drawing.Size(352, 392);
             this.distBox.TabIndex = 7;
             this.distBox.TextChanged += new System.EventHandler(this.distBox_TextChanged);
             // 
@@ -132,9 +134,9 @@
             this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(13, 12);
+            this.panel2.Location = new System.Drawing.Point(15, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1290, 5);
+            this.panel2.Size = new System.Drawing.Size(1455, 5);
             this.panel2.TabIndex = 9;
             // 
             // panel9
@@ -159,17 +161,83 @@
             this.panel4.Size = new System.Drawing.Size(10, 295);
             this.panel4.TabIndex = 8;
             // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel12.Controls.Add(this.panel13);
+            this.panel12.Controls.Add(this.panel14);
+            this.panel12.Location = new System.Drawing.Point(1468, 12);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(5, 575);
+            this.panel12.TabIndex = 12;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel13.Location = new System.Drawing.Point(574, 3);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(5, 567);
+            this.panel13.TabIndex = 9;
+            // 
+            // panel14
+            // 
+            this.panel14.Location = new System.Drawing.Point(569, 6);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(10, 573);
+            this.panel14.TabIndex = 9;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.nameLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.nameLabel.Location = new System.Drawing.Point(67, 118);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(220, 167);
+            this.nameLabel.TabIndex = 13;
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(662, 533);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 46);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Сохранить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // SolutLabel
+            // 
+            this.SolutLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SolutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SolutLabel.Image = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
+            this.SolutLabel.Location = new System.Drawing.Point(1146, 75);
+            this.SolutLabel.Name = "SolutLabel";
+            this.SolutLabel.Size = new System.Drawing.Size(169, 49);
+            this.SolutLabel.TabIndex = 15;
+            this.SolutLabel.Text = "Решение";
+            this.SolutLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SolutionLabel
+            // 
+            this.SolutionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.SolutionLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.SolutionLabel.Location = new System.Drawing.Point(1027, 118);
+            this.SolutionLabel.Name = "SolutionLabel";
+            this.SolutionLabel.Size = new System.Drawing.Size(410, 386);
+            this.SolutionLabel.TabIndex = 16;
+            // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel7);
-            this.panel1.Location = new System.Drawing.Point(13, 477);
+            this.panel1.Location = new System.Drawing.Point(18, 586);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1290, 5);
-            this.panel1.TabIndex = 10;
+            this.panel1.Size = new System.Drawing.Size(1455, 5);
+            this.panel1.TabIndex = 17;
             // 
             // panel3
             // 
@@ -195,14 +263,13 @@
             // 
             // panel8
             // 
-            this.panel8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel8.Controls.Add(this.panel10);
             this.panel8.Controls.Add(this.panel11);
-            this.panel8.Location = new System.Drawing.Point(13, 15);
+            this.panel8.Location = new System.Drawing.Point(15, 15);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(5, 467);
-            this.panel8.TabIndex = 11;
+            this.panel8.Size = new System.Drawing.Size(5, 575);
+            this.panel8.TabIndex = 18;
             // 
             // panel10
             // 
@@ -219,62 +286,19 @@
             this.panel11.Size = new System.Drawing.Size(10, 573);
             this.panel11.TabIndex = 9;
             // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel12.Controls.Add(this.panel13);
-            this.panel12.Controls.Add(this.panel14);
-            this.panel12.Location = new System.Drawing.Point(1298, 15);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(5, 467);
-            this.panel12.TabIndex = 12;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel13.Location = new System.Drawing.Point(574, 3);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(5, 567);
-            this.panel13.TabIndex = 9;
-            // 
-            // panel14
-            // 
-            this.panel14.Location = new System.Drawing.Point(569, 6);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(10, 573);
-            this.panel14.TabIndex = 9;
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.nameLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.nameLabel.Location = new System.Drawing.Point(161, 121);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(220, 59);
-            this.nameLabel.TabIndex = 13;
-            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(585, 411);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 46);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Form4
+            // InfoProblemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Authorizathion.Properties.Resources._1648513457_2_gamerwall_pro_p_belii_kholodnii_fon_krasivie_2;
-            this.ClientSize = new System.Drawing.Size(1315, 494);
+            this.ClientSize = new System.Drawing.Size(1485, 602);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.SolutionLabel);
+            this.Controls.Add(this.SolutLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.panel12);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.distBox);
             this.Controls.Add(this.dateLabel);
@@ -283,12 +307,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form4";
-            this.Text = "Form4";
+            this.Name = "InfoProblemForm";
+            this.Text = "Информация о проблеме";
             this.panel2.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,6 +329,13 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label SolutLabel;
+        private System.Windows.Forms.Label SolutionLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
@@ -312,10 +343,5 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Button button1;
     }
 }

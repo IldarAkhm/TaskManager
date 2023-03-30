@@ -13,21 +13,23 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Authorizathion
 {
-    public partial class Form4 : Form
+    public partial class InfoProblemForm : Form
     {
         private bool NameisTextChanged;
         private int index;
         private bool DistisTextChanged;
         private DataGridView dgw;
-        public Form4()
+        private int UID;
+        public InfoProblemForm()
         {
             InitializeComponent();
         }
-        public Form4(DataGridView e, int index)
+        public InfoProblemForm(DataGridView e, int index, int UID)
         {
             InitializeComponent();
             this.dgw = e;
             this.index = index;
+            this.UID = UID;
         }
 
         public void Form4_Load(object sender, EventArgs e)
@@ -44,7 +46,9 @@ namespace Authorizathion
                 string name = row.Cells["Name_of_problem"].Value.ToString();
                 string date = row.Cells["Date_of_problem"].Value.ToString();
                 string dist = row.Cells["Distribution"].Value.ToString();
+                string slout = row.Cells["solution"].Value.ToString();
 
+                SolutionLabel.Text = slout;
                 nameLabel.Text = name;
                 dateLabel.Text = date;
                 distBox.Text = dist;
